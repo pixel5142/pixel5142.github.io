@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看美剧的网站-美剧在线观看平台_高清美剧剧集资源</title>
+<meta name="description" content="看美剧的网站是一个聚焦美剧观看需求的导航与剧集内容平台，提供热门美剧剧集清单、类型筛选、追剧入口与观看方式说明，帮助访客快速找到想看的剧集并了解平台的实际服务范围。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1b2d'/%3E%3Cpath d='M14 22h26a4 4 0 0 1 4 4v20H18a4 4 0 0 1-4-4z' fill='%23e8b04b'/%3E%3Cpath d='M44 26l8-5v26l-8-5z' fill='%23e8b04b' opacity='.7'/%3E%3Ccircle cx='28' cy='36' r='5' fill='%230f1b2d'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0f1b2d;
+  --ink-soft:#1c2b42;
+  --paper:#f6f2ea;
+  --paper-2:#efe8dc;
+  --gold:#d99a2b;
+  --gold-soft:#f0c979;
+  --text:#22303f;
+  --muted:#5d6b7a;
+  --line:#dcd3c4;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1140px,92vw);margin:0 auto}
+
+/* header */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,27,45,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(232,176,75,.22);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:13px 0;
+}
+.logo{display:flex;align-items:center;gap:11px;color:#fff;font-weight:700;font-size:17px;letter-spacing:.3px}
+.logo .mark{width:36px;height:36px;flex:none}
+.logo-text{color:#fdf7ea;white-space:nowrap}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{
+  color:#cfd8e3;font-size:14.5px;padding:7px 12px;border-radius:9px;
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.nav a:hover,.nav a:focus-visible{background:rgba(232,176,75,.16);color:#f6d99c}
+.nav a.cta{background:var(--gold);color:#1a1305;font-weight:600}
+.nav a.cta:hover{background:var(--gold-soft)}
+
+/* hero */
+.hero{
+  background:linear-gradient(160deg,#0f1b2d 0%,#17263c 55%,#1f3350 100%);
+  color:#eef2f7;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(217,154,43,.28),transparent 68%);
+  pointer-events:none;
+}
+.hero-inner{padding:58px 0 62px;position:relative;z-index:2;display:grid;grid-template-columns:1.35fr .85fr;gap:48px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:2px;color:var(--gold-soft);
+  border:1px solid rgba(240,201,121,.4);border-radius:999px;padding:5px 14px;margin-bottom:20px;
+}
+h1{
+  font-size:clamp(30px,4.4vw,46px);line-height:1.22;font-weight:800;
+  color:#fff;letter-spacing:.5px;margin-bottom:18px;
+}
+.hero p.lead{font-size:16px;color:#c6d1de;max-width:36em;margin-bottom:26px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:10px;font-size:15px;font-weight:600;
+  transition:transform .18s,background .2s,color .2s;
+}
+.btn-primary{background:var(--gold);color:#1a1305}
+.btn-primary:hover{background:var(--gold-soft);transform:translateY(-1px)}
+.btn-ghost{border:1px solid rgba(240,201,121,.5);color:#f3dba8}
+.btn-ghost:hover{background:rgba(240,201,121,.12)}
+.btn[aria-disabled="true"]{pointer-events:none;opacity:.85}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+.hero-stats div{font-size:13px;color:#9fb0c2}
+.hero-stats strong{display:block;font-size:20px;color:#f5d9a2;font-weight:700}
+.hero-art{display:flex;justify-content:center}
+.hero-art svg{width:100%;max-width:330px;filter:drop-shadow(0 18px 34px rgba(0,0,0,.4))}
+
+/* section base */
+section{padding:58px 0}
+.sec-head{max-width:44em;margin-bottom:30px}
+.sec-tag{font-size:12.5px;letter-spacing:2.5px;color:var(--gold);font-weight:700;text-transform:uppercase}
+h2{font-size:clamp(22px,2.6vw,29px);font-weight:800;color:var(--ink);margin:8px 0 12px;letter-spacing:.3px}
+.sec-head p{color:var(--muted);font-size:15.2px}
+
+/* genres */
+.genre-bar{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px}
+.chip{
+  border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+  padding:7px 16px;border-radius:999px;font-size:14px;cursor:pointer;
+  transition:all .18s;font-family:inherit;
+}
+.chip:hover{border-color:var(--gold);color:#8a5c00}
+.chip.active{background:var(--ink);border-color:var(--ink);color:#f6d99c}
+
+/* show grid */
+.show-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:20px}
+.show-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .2s,box-shadow .2s;
+}
+.show-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,32,50,.1)}
+.poster{
+  aspect-ratio:16/9;background:linear-gradient(135deg,#1c2b42,#2c4462);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.poster svg{width:54px;height:54px;opacity:.92}
+.poster .badge{
+  position:absolute;top:10px;left:10px;font-size:11.5px;
+  background:rgba(217,154,43,.94);color:#1a1305;font-weight:700;
+  padding:2px 9px;border-radius:6px;letter-spacing:.5px;
+}
+.show-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.show-body h3{font-size:16px;color:var(--ink);font-weight:700}
+.show-body .meta{font-size:12.5px;color:var(--muted)}
+.show-body p{font-size:13.6px;color:#4a5866;line-height:1.65;flex:1}
+.show-body .go{
+  font-size:13.5px;color:#a06c00;font-weight:600;margin-top:4px;
+}
+.show-body .go:hover{text-decoration:underline}
+.empty-tip{display:none;color:var(--muted);font-size:14.5px;padding:18px 0}
+.empty-tip.on{display:block}
+
+/* how to watch */
+.watch{background:var(--paper-2)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:step}
+.step{
+  background:#fff;border-radius:var(--radius);padding:24px 22px;
+  border:1px solid var(--line);position:relative;
+}
+.step::before{
+  counter-increment:step;content:"0" counter(step);
+  font-size:13px;font-weight:800;color:var(--gold);letter-spacing:1px;
+}
+.step h3{font-size:16.5px;color:var(--ink);margin:8px 0 8px}
+.step p{font-size:14px;color:#4a5866}
+
+/* notes list */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+.note-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.note-list li{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:0 12px 12px 0;padding:16px 18px;
+}
+.note-list h3{font-size:15.5px;color:var(--ink);margin-bottom:5px}
+.note-list p{font-size:14px;color:#4a5866}
+.aside-card{
+  background:var(--ink);color:#dbe4ee;border-radius:var(--radius);padding:26px 24px;
+}
+.aside-card h3{color:#f5d9a2;font-size:17px;margin-bottom:12px}
+.aside-card p{font-size:14px;color:#b9c5d3;margin-bottom:12px}
+.aside-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:13.8px;color:#c9d4e0}
+.aside-card li::before{content:"▸ ";color:var(--gold)}
+.aside-card .btn{margin-top:16px}
+
+/* faq */
+.faq-list{display:flex;flex-direction:column;gap:12px;max-width:56em}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 20px;
+}
+details[open]{border-color:var(--gold-soft)}
+summary{
+  cursor:pointer;font-weight:700;color:var(--ink);font-size:15.4px;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:20px;font-weight:400;line-height:1}
+details[open] summary::after{content:"–"}
+details p{font-size:14.2px;color:#4a5866;margin-top:10px}
+
+/* footer */
+.site-footer{background:var(--ink);color:#9fb0c2;padding:44px 0 28px}
+.footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand{max-width:36em}
+.footer-brand .logo{margin-bottom:12px}
+.footer-brand p{font-size:13.8px;line-height:1.8;color:#93a3b5}
+.footer-links{display:flex;gap:54px;flex-wrap:wrap}
+.footer-links h4{color:#e6edf5;font-size:14px;margin-bottom:12px;letter-spacing:.5px}
+.footer-links a{display:block;font-size:13.6px;color:#93a3b5;padding:3px 0}
+.footer-links a:hover{color:var(--gold-soft)}
+.footer-bottom{padding-top:18px;font-size:12.8px;color:#728499;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:42px 0 46px;gap:30px}
+  .hero-art{order:-1;max-width:260px;margin:0 auto}
+  .split{grid-template-columns:1fr;gap:30px}
+  section{padding:44px 0}
+}
+@media (max-width:640px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:10px;padding:11px 0}
+  .nav{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .nav a{font-size:13.5px;padding:6px 10px}
+  .logo{font-size:15.5px}
+  .hero-stats{gap:18px}
+  .hero-stats strong{font-size:17px}
+  .show-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .show-body h3{font-size:14.5px}
+  .show-body p{font-size:12.8px}
+  .footer-links{gap:30px}
+}
+@media (max-width:430px){
+  .show-grid{grid-template-columns:1fr}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="看美剧的网站首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#e8b04b"/>
+        <path d="M14 22h26a4 4 0 0 1 4 4v20H18a4 4 0 0 1-4-4z" fill="#0f1b2d"/>
+        <path d="M44 26l8-5v26l-8-5z" fill="#0f1b2d" opacity=".6"/>
+        <circle cx="28" cy="36" r="5" fill="#e8b04b"/>
+      </svg>
+      <span class="logo-text">看美剧的网站</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#shows">剧集清单</a>
+      <a href="#watch">观看方式</a>
+      <a href="#notes">选剧要点</a>
+      <a href="#faq">常见问题</a>
+      <a class="cta" href="#shows">开始找剧</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">美剧剧集 · 分类导航</span>
+        <h1>看美剧的网站</h1>
+        <p class="lead">这里把热门美剧按类型、时长与更新情况整理成可浏览的剧集清单，帮助你在看美剧的网站中找到下一步要追的剧，并弄清每部剧适合什么样的观看节奏。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#shows">浏览剧集清单</a>
+          <a class="btn btn-ghost" href="#watch">了解观看方式</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>6 类</strong>类型分组</div>
+          <div><strong>12 部</strong>精选剧集条目</div>
+          <div><strong>3 步</strong>找剧路径</div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="28" y="38" width="264" height="156" rx="12" fill="#0b1421" stroke="#e8b04b" stroke-width="3"/>
+          <rect x="44" y="54" width="232" height="124" rx="6" fill="#16263c"/>
+          <path d="M140 92l46 24-46 24z" fill="#e8b04b"/>
+          <rect x="54" y="164" width="70" height="6" rx="3" fill="#2c4462"/>
+          <rect x="132" y="164" width="44" height="6" rx="3" fill="#2c4462"/>
+          <rect x="184" y="164" width="82" height="6" rx="3" fill="#2c4462"/>
+          <rect x="118" y="204" width="84" height="9" rx="4" fill="#e8b04b" opacity=".85"/>
+          <rect x="88" y="220" width="144" height="7" rx="3" fill="#2c4462"/>
+          <circle cx="268" cy="60" r="7" fill="#f0c979"/>
+          <circle cx="52" cy="196" r="5" fill="#f0c979" opacity=".7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="shows">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">剧集清单</span>
+        <h2>按类型挑一部，再决定追不追</h2>
+        <p>下面的条目按剧集类型分组，每张卡片写明题材、单集时长与适合的观看方式。点击类型标签即可筛选，清单内容直接写在页面里，不需要额外加载。</p>
+      </div>
+      <div class="genre-bar" role="group" aria-label="按类型筛选剧集">
+        <button class="chip active" data-genre="all" type="button">全部</button>
+        <button class="chip" data-genre="剧情" type="button">剧情</button>
+        <button class="chip" data-genre="喜剧" type="button">喜剧</button>
+        <button class="chip" data-genre="犯罪" type="button">犯罪</button>
+        <button class="chip" data-genre="科幻" type="button">科幻</button>
+        <button class="chip" data-genre="律政" type="button">律政</button>
+      </div>
+      <div class="show-grid" id="showGrid">
+
+        <article class="show-card" data-genre="剧情">
+          <div class="poster"><span class="badge">剧情</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 22h26a4 4 0 0 1 4 4v20H18a4 4 0 0 1-4-4z" fill="#e8b04b"/><path d="M44 26l8-5v26l-8-5z" fill="#e8b04b" opacity=".6"/></svg>
+          </div>
+          <div class="show-body">
+            <h3>家族长篇剧</h3>
+            <p class="meta">剧情 · 单集约 50 分钟 · 多季连续</p>
+            <p>以家族关系为线索的叙事型剧集，适合愿意按季慢慢看完的观众。</p>
+            <a class="go" href="#watch">查看观看方式 →</a>
+          </div>
+        </article>
+
+        <article class="show-card" data-genre="喜剧">
+          <div class="poster"><span class="badge">喜剧</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="30" r="18" fill="none" stroke="#e8b04b" stroke-width="3"/><circle cx="25" cy="26" r="2.5" fill="#e8b04b"/><circle cx="39" cy="26" r="2.5" fill="#e8b04b"/><path d="M23 37c3 4 15 4 18 0" stroke="#e8b04b" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <div class="show-body">
+            <h3>情景喜剧集</h3>
+            <p class="meta">喜剧 · 单集约 22 分钟 · 单集独立</p>
+            <p>单集故事相对独立，适合碎片时间观看，随时插入不影响理解主线。</p>
+            <a class="go" href="#watch">查看观看方式 →</a>
+          </div>
+        </article>
+
+        <article class="show-card" data-genre="犯罪">
+          <div class="poster"><span class="badge">犯罪</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 40l8-16 8 10 8-14" stroke="#e8b04b" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="20" cy="40" r="3" fill="#e8b04b"/><circle cx="44" cy="20" r="3" fill="#e8b04b"/></svg>
+          </div>
+          <div class="show-body">
+            <h3>刑侦单元剧</h3>
+            <p class="meta">犯罪 · 单集约 45 分钟 · 单元结构</p>
+            <p>每集或每两集解决一个案件，主线人物关系穿插推进。</p>
+            <a class="go" href="#watch">查看观看方式 →</a>
+          </div>
+        </article>
+
+        <article class="show-card" data-genre="科幻">
+          <div class="poster"><span class="badge">科幻</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="9" fill="#e8b04b"/><ellipse cx="32" cy="32" rx="22" ry="8" fill="none" stroke="#e8b04b" stroke-width="2.4" transform="rotate(-24 32 32)"/></svg>
+          </div>
+          <div class="show-body">
+            <h3>设定型科幻剧</h3>
+            <p class="meta">科幻 · 单集约 55 分钟 · 世界观驱动</p>
+            <p>以独特设定推动剧情，前几集信息密度较高，建议连续观看。</p>
+            <a class="go" href="#watch">查看观看方式 →</a>
+          </div>
+        </article>
+
+        <article class="show-card" data-genre="律政">
+          <div class="poster"><span class="badge">律政</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 16v30M18 24h28M18 24l-6 12h12zM46 24l-6 12h12z" stroke="#e8b04b" stroke-width="2.6" fill="none" stroke-linejoin="round"/><rect x="24" y="46" width="16" height="4" rx="2" fill="#e8b04b"/></svg>
+          </div>
+          <div class="show-body">
+            <h3>法庭辩论剧</h3>
+            <p class="meta">律政 · 单集约 43 分钟 · 案件推进</p>
+            <p>围绕庭审与调查展开，台词较多，适合专注观看。</p>
+            <a class="go" href="#watch">查看观看方式 →</a>
+          </div>
+        </article>
+
+        <article class="show-card" data-genre="剧情">
+          <div class="poster"><span class="badge">剧情</span>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="18" width="32" height="28" rx="4" fill="none" stroke="#e8b04b" stroke-width="3"/><path d="M24 30h16M24 37h10" stroke="#e8b04b" stroke-width="2.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="show-body">
+            <h3>职场群像剧</h3>
+            <p class="meta">剧情 · 单集约 48 分钟 · 群像叙事</p>
+            <p>以团队与行业为背景，人物线较多，适合喜欢人物成长弧的观众。</p>
+            <a class="go" href="#watch">查看观看方式 →</a>
+          </div>
+        </article>
+
+      </div>
+      <p class="empty-tip" id="emptyTip">当前类型暂无收录条目，切换“全部”可以查看完整清单。</p>
+    </div>
+  </section>
+
+  <section id="watch" class="watch">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">观看方式</span>
+        <h2>在一个看美剧的网站上找剧，通常按这三步走</h2>
+        <p>看美剧的网站的价值在于减少选择成本。先把需求说清楚，再对照剧集条目，最后确认自己的观看条件是否匹配。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>先定类型与时长</h3>
+          <p>确定自己今晚想看剧情、喜剧还是犯罪题材，并考虑可用的时间是 20 分钟还是 50 分钟。单集时长直接决定你能不能一口气看完一集。</p>
+        </div>
+        <div class="step">
+          <h3>对照条目确认结构</h3>
+          <p>单元剧适合跳看，连续剧更适合按季顺看。清单里标注了单集结构与季数形态，先看这一项能避免追到一半发现节奏不合适。</p>
+        </div>
+        <div class="step">
+          <h3>核对设备与字幕条件</h3>
+          <p>确认自己的设备、网络和字幕偏好是否满足需求。中文字幕与双语字幕的可得性因剧而异，开播前先确认，比看到一半再切换更省事。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <span class="sec-tag">选剧要点</span>
+          <h2>判断一个看美剧的网站是否合用，看这几点</h2>
+          <p>下面几点来自实际使用中反复遇到的情况，能帮助你在打开页面的头几分钟判断它是否适合自己。</p>
+        </div>
+        <ul class="note-list">
+          <li>
+            <h3>剧集信息是否写全</h3>
+            <p>一部剧的季数、单集时长、完结状态应当直接可见。缺少这些信息时，观众往往要跳转多个页面才能确认，反而增加负担。</p>
+          </li>
+          <li>
+            <h3>分类是否按观看场景划分</h3>
+            <p>比起把所有剧堆在一起，按类型和时长分组更贴近真实选择过程。想找下饭剧和想找沉浸长剧，本来就是两种不同的需求。</p>
+          </li>
+          <li>
+            <h3>字幕与语言选项是否说明清楚</h3>
+            <p>字幕语言、是否双语、能否调整字号，这些细节直接影响观看体验。提前写明比事后摸索更有效率。</p>
+          </li>
+          <li>
+            <h3>更新与完结状态是否标注</h3>
+            <p>连载中的剧与已完结的剧，追看节奏完全不同。标注状态能帮助观众判断是现在开始，还是等一等再入场。</p>
+          </li>
+        </ul>
+      </div>
+      <aside class="aside-card">
+        <h3>一份简短的追剧清单</h3>
+        <p>把想看的剧先记下来，再按类型和时长排序，是很多观众的常用做法。这样在打开看美剧的网站时，目标会更明确。</p>
+        <ul>
+          <li>写下 3 部候选剧名</li>
+          <li>标注每部剧的类型与单集时长</li>
+          <li>确认是否已完结</li>
+          <li>决定本周先看哪一部</li>
+        </ul>
+        <a class="btn btn-ghost" href="#shows">回到剧集清单</a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">常见问题</span>
+        <h2>关于看美剧的网站，访客最常问的几件事</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>这个页面本身能直接播放剧集吗？</summary>
+          <p>本页是剧集导航与信息页，主要提供剧集清单、类型筛选和观看方式说明，帮助你在看美剧的网站中做出选择。具体播放能力取决于你所使用的平台，本页不对播放服务作承诺。</p>
+        </details>
+        <details>
+          <summary>清单里的剧集条目会更新吗？</summary>
+          <p>条目会按类型整理，当前展示的是用于说明分类方式的一组示例条目。后续新增内容会沿用同样的字段结构，包括类型、单集时长与剧集形态。</p>
+        </details>
+        <details>
+          <summary>为什么要按单集时长筛选？</summary>
+          <p>因为可用时间决定了你能不能看完一集。22 分钟的喜剧和 55 分钟的科幻剧对注意力的要求差别明显，先按时长缩小范围，选择会快很多。</p>
+        </details>
+        <details>
+          <summary>字幕选项在哪里确认？</summary>
+          <p>字幕语言与样式由实际播放的平台决定。建议在开始观看前先检查字幕设置，确认中文字幕或双语字幕是否可用，再决定是否继续。</p>
+        </details>
+        <details>
+          <summary>页面的下载入口现在可用吗？</summary>
+          <p>下载入口目前尚未开放，按钮保持禁用状态，待资源地址确认后再启用。在此之前，可以继续使用剧集清单和观看方式两个栏目。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true" width="32" height="32">
+            <rect width="64" height="64" rx="14" fill="#e8b04b"/>
+            <path d="M14 22h26a4 4 0 0 1 4 4v20H18a4 4 0 0 1-4-4z" fill="#0f1b2d"/>
+            <path d="M44 26l8-5v26l-8-5z" fill="#0f1b2d" opacity=".6"/>
+            <circle cx="28" cy="36" r="5" fill="#e8b04b"/>
+          </svg>
+          <span class="logo-text">看美剧的网站</span>
+        </div>
+        <p>看美剧的网站以剧集清单为核心，把类型、时长与剧集形态整理成便于浏览的条目，帮助访客更快找到合适的剧集，并了解观看前需要确认的条件。</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>内容</h4>
+          <a href="#shows">剧集清单</a>
+          <a href="#watch">观看方式</a>
+          <a href="#notes">选剧要点</a>
+        </div>
+        <div>
+          <h4>支持</h4>
+          <a href="#faq">常见问题</a>
+          <a href="#top">返回顶部</a>
+          <a href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>看美剧的网站 · 剧集导航与观看方式说明</span>
+      <span>页面内容以剧集分类信息为主</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('#showGrid .show-card');
+  var tip = document.getElementById('emptyTip');
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      chips.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var g = btn.getAttribute('data-genre');
+      var shown = 0;
+      cards.forEach(function(card){
+        var ok = (g === 'all' || card.getAttribute('data-genre') === g);
+        card.style.display = ok ? '' : 'none';
+        if(ok) shown++;
+      });
+      tip.classList.toggle('on', shown === 0);
+    });
+  });
+})();
+</script>
+</body>
+  </html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄果ai-黄果ai怎么用_黄果ai功能与使用场景</title>
+<meta name="description" content="黄果ai 主题首页：了解黄果ai是什么、能做什么、适合哪些使用场景，以及从新手到进阶的上手路径与常见问题，帮助你快速开始使用黄果ai。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='34' r='22' fill='%23f5a623'/%3E%3Cpath d='M32 12c3 6 6 9 12 10-6 1-9 4-12 10-3-6-6-9-12-10 6-1 9-4 12-10z' fill='%23fff8e7'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1f2a24;
+  --ink-soft:#4a5a50;
+  --paper:#fbfaf4;
+  --paper-2:#f3f1e4;
+  --fruit:#f5a623;
+  --fruit-deep:#d9820b;
+  --leaf:#2f6b46;
+  --leaf-soft:#e3ede2;
+  --line:#dcd8c6;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--leaf);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+section{scroll-margin-top:84px}
+
+/* header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,250,244,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;gap:28px;
+  height:68px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:var(--ink);letter-spacing:.5px;white-space:nowrap}
+.brand:hover{text-decoration:none}
+.brand .logo-mark{width:34px;height:34px;flex:0 0 auto}
+nav.main{margin-left:auto;display:flex;gap:22px;font-size:15px}
+nav.main a{color:var(--ink-soft);font-weight:500}
+nav.main a:hover{color:var(--leaf);text-decoration:none}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--leaf);color:#fff;border-radius:999px;
+  padding:9px 20px;font-size:14.5px;font-weight:600;
+}
+.nav-cta:hover{text-decoration:none;background:#245236}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:7px 10px;margin-left:auto;cursor:pointer}
+.menu-btn svg{width:20px;height:20px;stroke:var(--ink)}
+
+/* hero */
+.hero{
+  padding:64px 0 56px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(245,166,35,.16), transparent 46%),
+    radial-gradient(circle at 6% 82%, rgba(47,107,70,.10), transparent 48%);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--leaf-soft);color:var(--leaf);
+  font-size:13px;font-weight:600;letter-spacing:.4px;
+  padding:5px 13px;border-radius:999px;margin-bottom:20px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--fruit)}
+h1{
+  font-size:clamp(30px,4.4vw,46px);
+  line-height:1.22;
+  letter-spacing:.5px;
+  font-weight:800;
+  color:var(--ink);
+}
+.hero-sub{
+  margin-top:18px;font-size:16.5px;color:var(--ink-soft);
+  max-width:34em;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  border-radius:999px;padding:12px 26px;font-size:15.5px;font-weight:600;
+  transition:.18s;
+}
+.btn-primary{background:var(--fruit);color:#3a2600}
+.btn-primary:hover{text-decoration:none;background:#ffb93e}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:#fff}
+.btn-ghost:hover{text-decoration:none;border-color:var(--leaf);color:var(--leaf)}
+.hero-facts{display:flex;gap:34px;margin-top:38px;flex-wrap:wrap}
+.hero-facts div{font-size:13.5px;color:var(--ink-soft)}
+.hero-facts strong{display:block;font-size:22px;color:var(--leaf);font-weight:800;line-height:1.3}
+
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-art .plate{
+  width:100%;max-width:420px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:26px;
+  box-shadow:0 22px 50px -28px rgba(47,107,70,.42);
+}
+.hero-art .plate h3{font-size:15px;font-weight:700;color:var(--ink-soft);margin-bottom:16px;letter-spacing:.5px}
+.chat-line{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start}
+.chat-line .dot{
+  width:26px;height:26px;border-radius:50%;flex:0 0 auto;
+  background:var(--leaf-soft);
+  display:flex;align-items:center;justify-content:center;
+}
+.chat-line .dot svg{width:15px;height:15px}
+.chat-line p{
+  background:var(--paper-2);border-radius:12px;padding:9px 13px;
+  font-size:13.5px;color:var(--ink-soft);line-height:1.6;
+}
+.chat-line.me{flex-direction:row-reverse}
+.chat-line.me p{background:#e8f2e6;color:#2b4a36}
+.chat-line.me .dot{background:var(--fruit)}
+
+/* generic section */
+.sec{padding:64px 0}
+.sec-alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{max-width:640px;margin-bottom:36px}
+.sec-head h2{
+  font-size:clamp(23px,2.8vw,30px);font-weight:800;line-height:1.3;
+  letter-spacing:.3px;margin-bottom:12px;
+}
+.sec-head h2 .mark{color:var(--fruit-deep)}
+.sec-head p{color:var(--ink-soft);font-size:15.5px}
+
+/* cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:.2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 36px -26px rgba(47,107,70,.5);border-color:#c9d8c6}
+.card .ico{
+  width:44px;height:44px;border-radius:13px;
+  background:var(--leaf-soft);
+  display:flex;align-items:center;justify-content:center;
+}
+.card .ico svg{width:23px;height:23px}
+.card h3{font-size:17.5px;font-weight:700}
+.card p{font-size:14.5px;color:var(--ink-soft);line-height:1.72}
+.card .tag{font-size:12.5px;color:var(--fruit-deep);font-weight:600;letter-spacing:.4px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:step;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+.step{padding:26px 22px;border-right:1px solid var(--line);position:relative}
+.step:last-child{border-right:none}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  font-size:13px;font-weight:800;color:var(--fruit-deep);letter-spacing:1px;
+  display:block;margin-bottom:10px;
+}
+.step h3{font-size:16px;margin-bottom:8px;font-weight:700}
+.step p{font-size:14px;color:var(--ink-soft)}
+
+/* scenario list */
+.scen{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.scen-item{
+  background:#fff;border-left:4px solid var(--fruit);
+  border-radius:0 12px 12px 0;
+  padding:20px 24px;
+  border-top:1px solid var(--line);
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.scen-item h3{font-size:16.5px;margin-bottom:7px;font-weight:700}
+.scen-item p{font-size:14.5px;color:var(--ink-soft)}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:14px;max-width:840px}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:18px 22px;
+}
+details[open]{border-color:#c9d8c6;box-shadow:0 12px 28px -24px rgba(47,107,70,.55)}
+summary{
+  cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--fruit-deep);font-size:19px;font-weight:700;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:12px;font-size:14.5px;color:var(--ink-soft)}
+
+/* cta band */
+.band{
+  background:linear-gradient(135deg,#2f6b46,#245236);
+  color:#f2f7ef;border-radius:22px;
+  padding:44px 42px;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;
+  flex-wrap:wrap;
+}
+.band h2{font-size:clamp(21px,2.6vw,27px);font-weight:800;margin-bottom:10px}
+.band p{font-size:15px;color:#cfe0d2;max-width:38em}
+.band .btn-primary{background:var(--fruit);color:#3a2600}
+.band .btn-primary:hover{background:#ffb93e}
+.dl-btn[aria-disabled="true"]{opacity:.85;cursor:default}
+
+/* footer */
+footer.site{
+  border-top:1px solid var(--line);
+  padding:42px 0 34px;
+  background:var(--paper);
+  font-size:14px;color:var(--ink-soft);
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;margin-bottom:32px}
+.foot-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;color:var(--ink);margin-bottom:12px}
+.foot-brand .logo-mark{width:28px;height:28px}
+footer h4{font-size:14.5px;color:var(--ink);margin-bottom:10px;font-weight:700}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+footer li a{color:var(--ink-soft);font-size:14px}
+footer li a:hover{color:var(--leaf)}
+.foot-bottom{border-top:1px solid var(--line);padding-top:20px;font-size:13px;color:#7a887f;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero{padding:44px 0 40px}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step{border-bottom:1px solid var(--line)}
+  .step:nth-child(2n){border-right:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  body{font-size:15.5px}
+  .nav{height:60px;gap:12px}
+  nav.main{
+    display:none;position:absolute;top:60px;left:0;right:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    flex-direction:column;gap:0;padding:8px 0;
+  }
+  nav.main.open{display:flex}
+  nav.main a{padding:11px 5vw;font-size:15px}
+  .nav-cta{display:none}
+  .menu-btn{display:block}
+  .grid-3{grid-template-columns:1fr}
+  .scen{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .step{border-right:none}
+  .band{padding:32px 24px;border-radius:16px}
+  .hero-facts{gap:24px}
+  .hero-facts strong{font-size:19px}
+  .foot-grid{grid-template-columns:1fr}
+  .sec{padding:46px 0}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="36" r="21" fill="#f5a623"/>
+        <path d="M32 10c2.6 6.4 6 9.8 12.4 11.4C38 23 34.6 26.4 32 32.8 29.4 26.4 26 23 19.6 21.4 26 19.8 29.4 16.4 32 10z" fill="#fff8e7"/>
+        <ellipse cx="25" cy="35" rx="3" ry="4" fill="#d9820b" opacity=".55"/>
+      </svg>
+      黄果ai
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="展开导航" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="main" id="mainNav">
+      <a href="#what">黄果ai是什么</a>
+      <a href="#ability">核心能力</a>
+      <a href="#start">上手路径</a>
+      <a href="#scene">使用场景</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="nav-cta" href="#start">开始使用</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">AI 助手 · 主题首页</span>
+        <h1>黄果ai</h1>
+        <p class="hero-sub">
+          黄果ai 是一个面向日常文字与思考任务的 AI 助手。把问题、素材或草稿交给它，它能帮你理清结构、补充细节、换一种说法。本页把黄果ai 的定位、能力边界和上手顺序讲清楚，方便你判断它是否适合自己的工作节奏。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#start">了解上手路径
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#what">先看它能做什么</a>
+        </div>
+        <div class="hero-facts">
+          <div><strong>对话式</strong>提问即可开始</div>
+          <div><strong>多轮</strong>上下文可追问</div>
+          <div><strong>中文</strong>表达自然顺畅</div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="plate" aria-hidden="true">
+          <h3>一次典型对话</h3>
+          <div class="chat-line">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg></span>
+            <p>帮我把这段会议记录整理成三条待办事项，并标出负责人。</p>
+          </div>
+          <div class="chat-line me">
+            <span class="dot"><svg viewBox="0 0 64 64"><circle cx="32" cy="36" r="21" fill="#f5a623"/><path d="M32 10c2.6 6.4 6 9.8 12.4 11.4C38 23 34.6 26.4 32 32.8 29.4 26.4 26 23 19.6 21.4 26 19.8 29.4 16.4 32 10z" fill="#fff"/></svg></span>
+            <p>已整理为三条：一、周三前确认预算口径（李）；二、周五交付初版方案（王）；三、下周一同步排期（陈）。</p>
+          </div>
+          <div class="chat-line">
+            <span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg></span>
+            <p>再把语气改得更正式一些，用于邮件。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT -->
+  <section class="sec" id="what">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>黄果ai 是什么，适合谁来用</h2>
+        <p>黄果ai 不是一个需要安装与配置的复杂系统，它的入口就是一段对话。理解它的定位，比记住功能清单更重要。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></span>
+          <span class="tag">定位</span>
+          <h3>对话式文字助手</h3>
+          <p>用自然语言描述任务，黄果ai 会给出可直接修改的文本结果。它擅长在已有素材上加工，而不是凭空替你决定方向。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg></span>
+          <span class="tag">人群</span>
+          <h3>写作者与职场人</h3>
+          <p>日常需要产出邮件、方案、纪要、说明文字的人，可以把黄果ai 当作第一稿的协作者，把精力留给判断与取舍。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4z"/></svg></span>
+          <span class="tag">边界</span>
+          <h3>结果需要你来确认</h3>
+          <p>黄果ai 的输出是参考草稿。涉及数据、日期与承诺的内容，仍应由你核对来源后再使用，这一点在使用前就应明确。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABILITY -->
+  <section class="sec sec-alt" id="ability">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>黄果ai 的核心能力</h2>
+        <p>下面四类任务，是黄果ai 在日常使用中最常被调用的部分。它们彼此衔接，常在一次对话中连续发生。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h9"/></svg></span>
+          <h3>结构化整理</h3>
+          <p>把零散的会议记录、聊天内容或笔记，整理成条目、清单或分段说明，让信息从杂乱变成可执行的顺序。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l4-1 9-9-3-3-9 9z"/><path d="M14 6l3 3"/></svg></span>
+          <h3>改写与润色</h3>
+          <p>同一段话可以改成正式、简洁或口语的版本。黄果ai 会保留原意，只调整语序、措辞与语气，方便你按场合取用。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 9h16M4 15h16"/></svg></span>
+          <h3>思路发散</h3>
+          <p>当你卡在开头，可以请黄果ai 给出几个不同方向的提纲或角度，再由你挑选、合并，形成自己的框架。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg></span>
+          <h3>长文提炼</h3>
+          <p>面对较长的材料，可以让黄果ai 先给出要点摘要，再针对某一段追问细节，避免一次性读完全部内容。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 1 3 6"/><path d="M4 18v-6h6"/></svg></span>
+          <h3>多轮追问</h3>
+          <p>一次回答不满意，可以直接说“再短一点”“换个说法”。黄果ai 会在同一话题内延续上下文，不必重复前情。</p>
+        </article>
+        <article class="card">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#2f6b46" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg></span>
+          <h3>格式适配</h3>
+          <p>同一份内容可以输出为要点列表、邮件正文或说明段落。把用途讲清楚，黄果ai 会按对应格式组织内容。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- START -->
+  <section class="sec" id="start">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>从第一次提问开始的四步</h2>
+        <p>不需要预先学习复杂的指令写法。按下面的顺序走一遍，你就能对黄果ai 的脾气有基本判断。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>说清任务</h3>
+          <p>用一句话交代你要的结果，例如“整理成三条待办”。任务越具体，黄果ai 的第一次回答越接近可用。</p>
+        </div>
+        <div class="step">
+          <h3>提供素材</h3>
+          <p>把原始记录、草稿或背景一并给出。有素材时，黄果ai 的输出会围绕你的内容展开，而不是泛泛而谈。</p>
+        </div>
+        <div class="step">
+          <h3>逐步修改</h3>
+          <p>先看整体结构是否合理，再逐条提出修改要求。分步调整比一次性描述所有要求更容易得到满意结果。</p>
+        </div>
+        <div class="step">
+          <h3>人工确认</h3>
+          <p>定稿前检查事实、数字与语气是否适合收件人。这一步由你完成，也是使用黄果ai 时最值得保留的习惯。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENE -->
+  <section class="sec sec-alt" id="scene">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>黄果ai 的常见使用场景</h2>
+        <p>以下场景都来自日常办公与写作中的真实环节。它们共同的特点是：你已经有素材，只缺一个能快速成形的过程。</p>
+      </div>
+      <div class="scen">
+        <div class="scen-item">
+          <h3>会议纪要与待办</h3>
+          <p>把速记内容交给黄果ai，先分出结论、分歧与待办，再补上负责人和时间节点。整理后的版本可以直接贴进工作群。</p>
+        </div>
+        <div class="scen-item">
+          <h3>邮件与通知起草</h3>
+          <p>说明收件对象和希望达到的效果，黄果ai 会给出语气合适的初稿。你只需删改几句，就能发出。</p>
+        </div>
+        <div class="scen-item">
+          <h3>方案开头与提纲</h3>
+          <p>面对空白文档，先让黄果ai 列出三到四个结构方向，挑一个继续展开，比从零构思更快进入状态。</p>
+        </div>
+        <div class="scen-item">
+          <h3>长材料快速过目</h3>
+          <p>把需要了解的报告或文章交给黄果ai 做摘要，先掌握主干，再决定哪些部分值得回到原文细读。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>关于黄果ai 的常见问题</h2>
+        <p>初次接触时最常被问到的几点，集中放在这里。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>黄果ai 需要专门学习提问技巧吗？</summary>
+          <p>不必。用平时对同事说话的方式描述任务即可。如果第一次结果不理想，补充一句“更短一些”“换正式语气”之类的要求，黄果ai 通常就能调整到位。</p>
+        </details>
+        <details>
+          <summary>黄果ai 的输出可以直接对外使用吗？</summary>
+          <p>建议先核对再使用。黄果ai 擅长组织语言与结构，但其中的数字、日期、人名与承诺事项，需要你对照原始资料确认，避免把推测当成事实。</p>
+        </details>
+        <details>
+          <summary>同一段对话里可以反复修改吗？</summary>
+          <p>可以。黄果ai 会在当前话题内延续上下文，你可以连续提出修改意见，不必每次都重新粘贴素材，这也是它适合反复打磨稿件的原因。</p>
+        </details>
+        <details>
+          <summary>黄果ai 适合处理多长的材料？</summary>
+          <p>较长的材料建议先做摘要、再分段追问，这样更容易控制重点。一次抛入过多内容，反而可能让关键信息被稀释。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2>把下一份草稿交给黄果ai</h2>
+          <p>从一段会议记录或一封未写完的邮件开始，走完“说清任务—提供素材—逐步修改—人工确认”的完整流程，你会更快找到黄果ai 在自己工作中的位置。</p>
+        </div>
+        <a class="btn btn-primary dl-btn" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="36" r="21" fill="#f5a623"/>
+            <path d="M32 10c2.6 6.4 6 9.8 12.4 11.4C38 23 34.6 26.4 32 32.8 29.4 26.4 26 23 19.6 21.4 26 19.8 29.4 16.4 32 10z" fill="#fff8e7"/>
+          </svg>
+          黄果ai
+        </div>
+        <p>黄果ai 主题首页，围绕黄果ai 的定位、能力与上手路径展开，帮助初次接触的人快速判断是否适合自己。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#what">黄果ai 是什么</a></li>
+          <li><a href="#ability">核心能力</a></li>
+          <li><a href="#start">上手路径</a></li>
+          <li><a href="#scene">使用场景</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>继续了解</h4>
+        <ul>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#start">四步开始使用</a></li>
+          <li><a href="#top">回到页首</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>黄果ai · 主题首页</span>
+      <span>内容以使用体验说明为主，具体能力以实际产品为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('mainNav');
+  if (btn && nav) {
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
+</body>
+    </html>

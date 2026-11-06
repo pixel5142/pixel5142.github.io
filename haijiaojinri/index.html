@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海角今日回家地址-海角回家地址_今日最新入口与访问方式</title>
+<meta name="description" content="海角今日回家地址页面，说明海角回家地址的查找方式、入口识别要点与访问注意事项，帮助你快速确认今日可用入口，减少无效尝试。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e2f3a'/%3E%3Cpath d='M12 40 L32 18 L52 40' fill='none' stroke='%2346d6c1' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M20 40 V50 H44 V40' fill='none' stroke='%23f2b544' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#132a33;
+    --ink-soft:#3b5560;
+    --deep:#0e2f3a;
+    --deep-2:#123c49;
+    --mint:#46d6c1;
+    --mint-soft:#d8f5ef;
+    --amber:#f2b544;
+    --paper:#f6f8f7;
+    --line:#dbe6e3;
+    --white:#ffffff;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    background:var(--deep);
+    color:#eaf6f3;
+    position:sticky;
+    top:0;
+    z-index:50;
+    border-bottom:1px solid rgba(70,214,193,.22);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    min-height:70px;
+    flex-wrap:wrap;
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand-mark{
+    width:38px;height:38px;flex:0 0 38px;
+    border-radius:11px;
+    background:linear-gradient(145deg,#16404d,#0b232b);
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(70,214,193,.35);
+  }
+  .brand-mark svg{width:22px;height:22px;}
+  .brand-text{
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:.5px;
+    color:#f2fbf9;
+    white-space:nowrap;
+  }
+  .nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  .nav a{
+    font-size:14px;
+    padding:7px 12px;
+    border-radius:9px;
+    color:#bcd9d4;
+    transition:background .2s,color .2s;
+  }
+  .nav a:hover,.nav a:focus-visible{background:rgba(70,214,193,.14);color:#ffffff;outline:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(circle at 88% 12%,rgba(70,214,193,.18),transparent 46%),
+      radial-gradient(circle at 6% 88%,rgba(242,181,68,.14),transparent 42%),
+      linear-gradient(160deg,#0e2f3a 0%,#123c49 62%,#0d2a34 100%);
+    color:#eaf6f3;
+    padding:58px 0 62px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-90px;bottom:-120px;
+    width:340px;height:340px;
+    border-radius:50%;
+    border:1px solid rgba(70,214,193,.25);
+    box-shadow:0 0 0 40px rgba(70,214,193,.05),0 0 0 90px rgba(70,214,193,.03);
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.35fr .9fr;
+    gap:44px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    letter-spacing:1.4px;
+    color:var(--mint);
+    background:rgba(70,214,193,.1);
+    border:1px solid rgba(70,214,193,.3);
+    padding:5px 13px;
+    border-radius:999px;
+    margin-bottom:20px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);}
+  h1{
+    font-size:clamp(27px,4vw,42px);
+    line-height:1.28;
+    margin:0 0 18px;
+    font-weight:800;
+    letter-spacing:.5px;
+    color:#ffffff;
+  }
+  .hero-lead{
+    font-size:16px;
+    color:#c3dcd7;
+    max-width:34em;
+    margin:0 0 26px;
+  }
+  .hero-lead strong{color:var(--amber);font-weight:700;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:15px;
+    font-weight:600;
+    padding:12px 22px;
+    border-radius:11px;
+    border:1px solid transparent;
+    transition:transform .18s,box-shadow .18s,background .18s;
+  }
+  .btn-primary{
+    background:var(--mint);
+    color:#07231f;
+    box-shadow:0 8px 20px rgba(70,214,193,.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(70,214,193,.34);}
+  .btn-ghost{
+    background:transparent;
+    color:#d7ece8;
+    border-color:rgba(215,236,232,.35);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.07);}
+  .btn-disabled{
+    background:rgba(255,255,255,.08);
+    color:#a9c6c1;
+    border-color:rgba(169,198,193,.3);
+  }
+  .hero-note{
+    margin-top:18px;
+    font-size:13px;
+    color:#93b6b0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .hero-card{
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(70,214,193,.24);
+    border-radius:var(--radius);
+    padding:22px 22px 20px;
+    backdrop-filter:blur(4px);
+  }
+  .hero-card h2{
+    font-size:15px;
+    margin:0 0 14px;
+    color:#eaf6f3;
+    font-weight:700;
+    letter-spacing:.5px;
+  }
+  .check-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .check-list li{
+    display:flex;
+    gap:10px;
+    font-size:14px;
+    color:#c3dcd7;
+    line-height:1.6;
+  }
+  .check-list .tick{
+    flex:0 0 18px;
+    width:18px;height:18px;
+    margin-top:3px;
+    border-radius:50%;
+    background:rgba(70,214,193,.16);
+    color:var(--mint);
+    font-size:11px;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:56px 0;}
+  .section-head{margin-bottom:30px;max-width:46em;}
+  .section-kicker{
+    font-size:13px;
+    letter-spacing:1.6px;
+    color:#1f8a7c;
+    font-weight:700;
+    margin:0 0 10px;
+    text-transform:uppercase;
+  }
+  h2.section-title{
+    font-size:clamp(21px,2.6vw,27px);
+    margin:0 0 12px;
+    font-weight:800;
+    color:var(--deep);
+    line-height:1.4;
+  }
+  .section-desc{margin:0;color:var(--ink-soft);font-size:15.5px;}
+
+  /* steps */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .step{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 22px;
+    position:relative;
+    transition:box-shadow .2s,transform .2s;
+  }
+  .step:hover{box-shadow:0 10px 26px rgba(18,60,73,.08);transform:translateY(-3px);}
+  .step-num{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:34px;height:34px;
+    border-radius:10px;
+    background:var(--mint-soft);
+    color:#12796b;
+    font-weight:800;
+    font-size:15px;
+    margin-bottom:14px;
+  }
+  .step h3{font-size:16.5px;margin:0 0 8px;color:var(--deep);font-weight:700;}
+  .step p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+
+  /* entry table */
+  .entry-panel{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .entry-panel-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+    padding:18px 22px;
+    background:linear-gradient(90deg,#eef8f5,#f8fbfa);
+    border-bottom:1px solid var(--line);
+  }
+  .entry-panel-head h3{margin:0;font-size:16px;color:var(--deep);font-weight:700;}
+  .status{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13px;color:#12796b;
+    background:var(--mint-soft);
+    border-radius:999px;
+    padding:4px 12px;
+    font-weight:600;
+  }
+  .status .dot{width:7px;height:7px;border-radius:50%;background:#1fbfa8;}
+  .entry-table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  .entry-table th{
+    text-align:left;
+    font-size:13px;
+    letter-spacing:.5px;
+    color:#6b8590;
+    font-weight:600;
+    padding:12px 22px;
+    background:#fbfdfc;
+    border-bottom:1px solid var(--line);
+  }
+  .entry-table td{
+    padding:15px 22px;
+    border-bottom:1px solid #edf3f1;
+    color:var(--ink-soft);
+    vertical-align:top;
+  }
+  .entry-table tr:last-child td{border-bottom:none;}
+  .entry-table td:first-child{color:var(--deep);font-weight:600;white-space:nowrap;}
+  .tag{
+    display:inline-block;
+    font-size:12px;
+    padding:2px 9px;
+    border-radius:6px;
+    background:#eef2f1;
+    color:#5a757f;
+    margin-left:4px;
+  }
+  .tag.live{background:var(--mint-soft);color:#12796b;}
+  .tag.warn{background:#fdf1dc;color:#9a6a12;}
+
+  /* notes grid */
+  .notes{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .note{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-left:4px solid var(--mint);
+    border-radius:12px;
+    padding:22px 24px;
+  }
+  .note h3{margin:0 0 9px;font-size:16px;color:var(--deep);font-weight:700;}
+  .note p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+  .note p + p{margin-top:9px;}
+
+  /* faq */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:0 20px;
+    transition:border-color .2s;
+  }
+  details[open]{border-color:#bfe6df;}
+  summary{
+    cursor:pointer;
+    list-style:none;
+    font-size:15.5px;
+    font-weight:700;
+    color:var(--deep);
+    padding:17px 28px 17px 0;
+    position:relative;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";
+    position:absolute;
+    right:2px;top:50%;
+    transform:translateY(-50%);
+    font-size:19px;
+    font-weight:400;
+    color:#1fbfa8;
+    transition:transform .2s;
+  }
+  details[open] summary::after{content:"−";}
+  details .faq-body{
+    padding:0 0 18px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    border-top:1px solid #eef4f2;
+    margin-top:-1px;
+    padding-top:14px;
+  }
+
+  /* cta band */
+  .cta-band{
+    background:linear-gradient(140deg,#0e2f3a,#14424f);
+    color:#e9f6f3;
+    border-radius:20px;
+    padding:38px 34px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+  .cta-band h2{font-size:22px;margin:0 0 8px;font-weight:800;color:#ffffff;}
+  .cta-band p{margin:0;font-size:14.5px;color:#b6d3ce;max-width:38em;}
+  .cta-band .btn-primary{flex:0 0 auto;}
+
+  /* footer */
+  .site-footer{
+    background:var(--deep);
+    color:#9fbfb9;
+    padding:36px 0 30px;
+    margin-top:10px;
+  }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:26px;
+    flex-wrap:wrap;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(70,214,193,.16);
+  }
+  .footer-brand{max-width:30em;}
+  .footer-brand .brand-text{color:#f2fbf9;font-size:16px;}
+  .footer-brand p{margin:12px 0 0;font-size:13.5px;color:#8fb1ab;line-height:1.7;}
+  .footer-links{display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;}
+  .footer-links a{color:#a9c8c2;transition:color .2s;}
+  .footer-links a:hover{color:var(--mint);}
+  .footer-bottom{
+    padding-top:18px;
+    font-size:12.5px;
+    color:#7d9f99;
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .steps{grid-template-columns:1fr;}
+    .notes{grid-template-columns:1fr;}
+    .hero{padding:42px 0 46px;}
+    section{padding:42px 0;}
+    .entry-table th,.entry-table td{padding-left:16px;padding-right:16px;}
+  }
+  @media (max-width:560px){
+    body{font-size:15.5px;}
+    .header-inner{min-height:auto;}
+    .brand-text{font-size:15.5px;white-space:normal;line-height:1.35;}
+    .nav{width:100%;justify-content:flex-start;gap:2px;}
+    .nav a{font-size:13.5px;padding:6px 9px;}
+    .cta-band{padding:28px 22px;}
+    .hero-card{padding:18px;}
+    .btn{padding:11px 18px;font-size:14.5px;}
+    .entry-table{font-size:13.5px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="海角今日回家地址 首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 38 L32 14 L54 38" fill="none" stroke="#46d6c1" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 38 V52 H45 V38" fill="none" stroke="#f2b544" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">海角今日回家地址</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#steps">查找步骤</a>
+      <a href="#entries">入口速览</a>
+      <a href="#notes">识别要点</a>
+      <a href="#faq">常见问题</a>
+      <a href="#download">下载</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>今日入口 · 访问指引</span>
+        <h1 id="hero-title">海角今日回家地址</h1>
+        <p class="hero-lead">
+          海角今日回家地址是本页的核心主题。页面把“回家地址”这件事拆成可执行的步骤：先确认今日入口的发布口径，再按顺序核对链接特征，最后记录可用结果，避免在多个来源之间反复试错。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#steps">查看查找步骤</a>
+          <a class="btn btn-ghost" href="#entries">入口速览</a>
+        </div>
+        <p class="hero-note">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#93b6b0" stroke-width="1.8"/><path d="M12 8v5" stroke="#93b6b0" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.2" r="1.1" fill="#93b6b0"/></svg>
+          地址会随日期变化，本页不缓存具体链接，仅提供判断与查找方法。
+        </p>
+      </div>
+      <aside class="hero-card" aria-label="今日核对清单">
+        <h2>今日核对清单</h2>
+        <ul class="check-list">
+          <li><span class="tick" aria-hidden="true">✓</span><span>确认页面日期与“今日”标注一致，避免沿用过期记录。</span></li>
+          <li><span class="tick" aria-hidden="true">✓</span><span>核对域名主体是否与近期常用入口保持同一指向。</span></li>
+          <li><span class="tick" aria-hidden="true">✓</span><span>打开后先观察页面结构，再决定是否继续浏览。</span></li>
+          <li><span class="tick" aria-hidden="true">✓</span><span>把确认可用的结果单独保存，减少下次重复查找。</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="steps" aria-labelledby="steps-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">查找路径</p>
+        <h2 class="section-title" id="steps-title">分三步确认海角今日回家地址</h2>
+        <p class="section-desc">回家地址不是固定值，按固定顺序操作比到处收集链接更稳妥。下面三步覆盖从获取线索到验证可用的完整过程。</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="step-num">1</span>
+          <h3>先锁定发布来源</h3>
+          <p>优先查看你此前记录过的发布渠道，确认该渠道今天是否更新。来源越集中，越不容易遇到仿冒页；来源一旦分散，就要回到最常用的那一处比对。</p>
+        </article>
+        <article class="step">
+          <span class="step-num">2</span>
+          <h3>比对链接特征</h3>
+          <p>拿到候选链接后看域名主体、路径层级与页面标题是否自洽。海角今日回家地址的正常入口通常结构简洁，若出现多层跳转或要求额外验证，应暂停操作。</p>
+        </article>
+        <article class="step">
+          <span class="step-num">3</span>
+          <h3>验证并记录</h3>
+          <p>打开页面后确认内容区能正常呈现，再将该结果记入自己的清单并标注日期。隔天回看时，只需判断记录是否过期，不必重新搜索一遍。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="entries" aria-labelledby="entries-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">入口速览</p>
+        <h2 class="section-title" id="entries-title">回家地址的三种常见形态</h2>
+        <p class="section-desc">同样是“回家地址”，承载形式不同，核对方式也不同。下表按形态归类，帮助你先判断手上的线索属于哪一种。</p>
+      </div>
+      <div class="entry-panel">
+        <div class="entry-panel-head">
+          <h3>形态对照表</h3>
+          <span class="status"><span class="dot" aria-hidden="true"></span>按日核对</span>
+        </div>
+        <table class="entry-table">
+          <thead>
+            <tr>
+              <th scope="col">形态</th>
+              <th scope="col">特征</th>
+              <th scope="col">核对重点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>每日更新页</td>
+              <td>标题带日期，正文只保留当天入口<span class="tag live">常见</span></td>
+              <td>日期是否为今天，旧日期条目是否已失效</td>
+            </tr>
+            <tr>
+              <td>固定说明页</td>
+              <td>长期存在，用文字描述当天入口位置</td>
+              <td>说明文字是否随日期变化，避免照抄旧描述</td>
+            </tr>
+            <tr>
+              <td>记录清单页</td>
+              <td>列出多天结果，按时间倒序排列</td>
+              <td>取最上面一条，并确认其标注日期<span class="tag warn">易过期</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes" aria-labelledby="notes-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">识别要点</p>
+        <h2 class="section-title" id="notes-title">判断一个回家地址是否可用的细节</h2>
+        <p class="section-desc">链接能打开不等于可用。以下几个细节决定了你看到的是真实入口，还是已经过期的中转页。</p>
+      </div>
+      <div class="notes">
+        <article class="note">
+          <h3>看标题与日期是否同步</h3>
+          <p>真正的今日入口，标题中的日期与页面内标注应保持一致。若标题写着今天、正文却是上周的描述，说明这条海角今日回家地址已经过期，应回到来源处重新获取。</p>
+        </article>
+        <article class="note">
+          <h3>看跳转层级是否合理</h3>
+          <p>正常入口通常一到两次跳转即可到达内容区。若连续弹出多层中间页、反复要求点击确认，应直接关闭。跳转越多，判断成本越高，也越容易偏离原目标。</p>
+        </article>
+        <article class="note">
+          <h3>看页面结构是否完整</h3>
+          <p>可用的回家地址打开后，导航、内容区与页尾结构应当完整。只有零散文字或大块空白，往往意味着页面尚未加载完成或已被替换，不宜作为当日记录留存。</p>
+        </article>
+        <article class="note">
+          <h3>看记录方式是否规范</h3>
+          <p>建议用“日期 + 域名 + 一句备注”的格式保存。之后要确认海角今日回家地址时，只需比对日期与域名，不必凭记忆回忆当时打开的是哪一个链接。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">常见问题</p>
+        <h2 class="section-title" id="faq-title">关于回家地址的高频疑问</h2>
+        <p class="section-desc">以下问题来自查找过程中最容易卡住的几个环节，答案以“如何判断”为主，不提供固定链接。</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>为什么昨天的地址今天打不开了？</summary>
+          <div class="faq-body">回家地址按日更新是常见做法，旧地址在次日失效属于正常现象。遇到打不开时，不要反复刷新同一链接，应回到你记录的来源处查看是否已发布新的日期条目。</div>
+        </details>
+        <details>
+          <summary>搜索到的多个结果该用哪一个？</summary>
+          <div class="faq-body">优先选择日期最新、结构完整、说明文字具体的那一个。若多个结果互相矛盾，以你长期使用且记录一致的来源为准，其余结果仅作参考，不宜混用。</div>
+        </details>
+        <details>
+          <summary>需要把地址分享给别人吗？</summary>
+          <div class="faq-body">分享时应连同获取日期一起说明，否则对方拿到的可能已是过期链接。更稳妥的做法是告诉对方从哪里获取今日结果，而不是直接转发某一条具体地址。</div>
+        </details>
+        <details>
+          <summary>页面打不开时先检查什么？</summary>
+          <div class="faq-body">先确认网络是否正常，再核对链接是否被完整复制、有无多余字符。排除这两点后仍无法打开，基本可以判断该条海角今日回家地址已失效，需要重新获取当日结果。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" aria-labelledby="download-title">
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2 id="download-title">把今日核对清单保存下来</h2>
+          <p>清单包含三步查找流程与四项识别要点，适合打印或存为本地文件，方便每天对照使用。当前版本为页面说明文本，下载入口稍后开放。</p>
+        </div>
+        <a class="btn btn-primary btn-disabled" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="brand-text">海角今日回家地址</span>
+        <p>本页围绕海角今日回家地址提供查找步骤、形态对照与识别要点，不保存具体链接，内容随核对方法更新。</p>
+      </div>
+      <nav class="footer-links" aria-label="页尾导航">
+        <a href="#steps">查找步骤</a>
+        <a href="#entries">入口速览</a>
+        <a href="#notes">识别要点</a>
+        <a href="#faq">常见问题</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 海角今日回家地址 · 访问指引页</span>
+      <span>地址按日变化，请以当日核对结果为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+      </html>

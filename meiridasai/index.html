@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛主题大赛-每日大赛主题大赛热点合集_每日大赛主题大赛最新动态</title>
+<meta name="description" content="每日大赛主题大赛热点内容聚合页，汇总每日大赛主题大赛的热门看点、主题合辑与社区讨论入口，帮助读者快速了解当前每日大赛主题大赛的热点走向与内容要点。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314181f'/%3E%3Cpath d='M18 42l10-20 6 12 5-8 7 16z' fill='%23f2b544'/%3E%3Ccircle cx='46' cy='20' r='4' fill='%23e2574c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0f1218;
+  --bg-soft:#161b24;
+  --card:#1b222d;
+  --line:#2a3341;
+  --text:#e8ecf2;
+  --muted:#9aa7b8;
+  --gold:#f2b544;
+  --red:#e2574c;
+  --blue:#5aa9e6;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{width:min(1120px,92vw);margin:0 auto}
+
+/* 页头 */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,18,24,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.5px}
+.brand .mark{width:34px;height:34px;flex:0 0 34px}
+.brand span{white-space:nowrap}
+nav.main-nav{display:flex;gap:22px;font-size:14.5px;color:var(--muted)}
+nav.main-nav a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
+nav.main-nav a:hover{color:var(--text);border-color:var(--gold)}
+.menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 10px;font-size:14px}
+
+/* 首屏 */
+.hero{padding:56px 0 44px;position:relative;overflow:hidden}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-80px;width:420px;height:420px;
+  background:radial-gradient(circle,rgba(242,181,68,.18),transparent 65%);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:44px;align-items:center;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--gold);border:1px solid rgba(242,181,68,.35);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:clamp(28px,4.4vw,46px);line-height:1.25;letter-spacing:.5px;margin-bottom:16px}
+h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{color:var(--muted);font-size:16px;max-width:34em;margin-bottom:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;font-size:15px;font-weight:600;transition:.2s;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#e09a24);color:#1a1206}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);color:var(--text);background:var(--bg-soft)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn[aria-disabled="true"]{opacity:.75;cursor:default}
+
+.hero-card{
+  background:linear-gradient(160deg,#1d2531,#141a23);
+  border:1px solid var(--line);border-radius:18px;padding:22px;
+  box-shadow:0 24px 48px -24px rgba(0,0,0,.8);
+}
+.hero-card h2{font-size:15px;color:var(--muted);font-weight:600;margin-bottom:14px;letter-spacing:1px}
+.hot-list{list-style:none;display:grid;gap:12px}
+.hot-list li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px}
+.hot-list .rank{flex:0 0 22px;height:22px;border-radius:6px;background:var(--bg-soft);color:var(--gold);font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:700;margin-top:2px}
+.hot-list .rank.top{background:var(--red);color:#fff}
+.hot-list small{display:block;color:var(--muted);font-size:12.5px}
+
+/* 通用区块 */
+section{padding:48px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(21px,2.6vw,27px);letter-spacing:.5px}
+.sec-head p{color:var(--muted);font-size:14px;max-width:40em}
+.sec-tag{font-size:12.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+
+/* 卡片网格 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px;transition:.22s;display:flex;flex-direction:column;gap:10px;
+}
+.card:hover{border-color:rgba(242,181,68,.45);transform:translateY(-3px)}
+.card .ico{width:38px;height:38px;border-radius:10px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.card h3{font-size:17px;letter-spacing:.3px}
+.card p{color:var(--muted);font-size:14.2px}
+.card .meta{margin-top:auto;font-size:12.5px;color:var(--gold);display:flex;gap:10px;align-items:center}
+
+/* 主题合辑双栏 */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.panel h3{font-size:18px;margin-bottom:6px}
+.panel .sub{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+.list{list-style:none;display:grid;gap:12px}
+.list li{display:flex;gap:10px;font-size:14.5px;align-items:flex-start}
+.list li::before{content:"";flex:0 0 6px;height:6px;border-radius:50%;background:var(--gold);margin-top:9px}
+.list li span{color:var(--muted)}
+
+/* 说明正文 */
+.article{max-width:44em}
+.article p{color:#c8d1de;font-size:15.5px;margin-bottom:16px}
+.article p strong{color:var(--text)}
+.article .note{font-size:13.5px;color:var(--muted);border-left:3px solid var(--gold);padding-left:14px;margin-top:8px}
+
+/* 社区讨论 */
+.discuss{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.quote p{font-size:14.5px;color:#d5dde8;margin-bottom:10px}
+.quote .who{font-size:12.5px;color:var(--muted)}
+
+/* 页尾 */
+footer.site{border-top:1px solid var(--line);padding:36px 0 28px;margin-top:20px;background:var(--bg-soft)}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-brand{font-weight:700;font-size:16px;margin-bottom:8px}
+.foot-note{color:var(--muted);font-size:13px;max-width:30em}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.foot-links a:hover{color:var(--gold)}
+.copy{margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* 响应式 */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .grid-3{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  nav.main-nav{display:none}
+  .menu-toggle{display:block}
+  .hero{padding:36px 0 30px}
+  .grid-3,.discuss{grid-template-columns:1fr}
+  section{padding:34px 0}
+  .head-inner{padding:10px 0}
+  .brand{font-size:15px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="每日大赛主题大赛 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1b222d"/>
+        <path d="M18 42l10-20 6 12 5-8 7 16z" fill="#f2b544"/>
+        <circle cx="46" cy="20" r="4" fill="#e2574c"/>
+      </svg>
+      <span>每日大赛主题大赛</span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#today">今日看点</a>
+      <a href="#topics">主题合辑</a>
+      <a href="#explain">看点说明</a>
+      <a href="#discuss">社区讨论</a>
+      <a href="#entry">内容入口</a>
+    </nav>
+    <button class="menu-toggle" aria-label="展开导航" onclick="document.querySelector('.main-nav').style.display='flex'">菜单</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><span class="dot"></span>热点内容聚合 · 持续更新</span>
+        <h1>每日大赛主题大赛</h1>
+        <p class="lead">每日大赛主题大赛是一个围绕每日热点主题进行内容聚合的看点栏目。这里把分散的讨论、主题合辑与社区反馈放在同一条阅读线上，方便你快速抓住当前最受关注的主题走向。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#today">查看今日看点</a>
+          <a class="btn btn-ghost" href="#topics">浏览主题合辑</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="热点速览">
+        <h2>热点速览</h2>
+        <ul class="hot-list">
+          <li><span class="rank top">1</span><div>本周主题主线集中<small>多个主题合辑同步更新</small></div></li>
+          <li><span class="rank">2</span><div>讨论热度分布不均<small>集中在少数几个主题</small></div></li>
+          <li><span class="rank">3</span><div>社区反馈出现分歧<small>对看点判断各有侧重</small></div></li>
+          <li><span class="rank">4</span><div>旧主题被重新翻出<small>与当前主题形成对照</small></div></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 今日看点 -->
+  <section id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Today</span>
+          <h2>今日看点</h2>
+        </div>
+        <p>按关注度整理的三个方向，描述的是内容结构而非具体结论，读者可据此决定先看哪一块。</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f2b544" stroke-width="1.8"><path d="M3 17l5-6 4 4 4-7 5 9"/></svg>
+          </div>
+          <h3>主题主线清晰</h3>
+          <p>当日多个内容围绕同一主题展开，形成较强的主线感，适合想快速了解整体走向的读者先看。</p>
+          <div class="meta">热度偏高</div>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5aa9e6" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          </div>
+          <h3>更新节奏分散</h3>
+          <p>不同主题的更新时段并不统一，部分内容会在晚间集中出现，白天看到的可能只是前半段。</p>
+          <div class="meta">关注时段</div>
+        </article>
+        <article class="card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e2574c" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h13"/></svg>
+          </div>
+          <h3>观点分歧明显</h3>
+          <p>同一主题下存在不同解读，部分讨论互相补充，也有相互矛盾之处，需要读者自行对照。</p>
+          <div class="meta">需对照阅读</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主题合辑 -->
+  <section id="topics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Themes</span>
+          <h2>主题合辑</h2>
+        </div>
+        <p>把每日大赛主题大赛中反复出现的主题归成两类，一类偏事件脉络，一类偏讨论现场。</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>脉络类合辑</h3>
+          <p class="sub">按时间顺序串起同一主题的前后变化，适合补看前情。</p>
+          <ul class="list">
+            <li><div>主题起点与早期讨论<span>——了解最初关注点在哪里</span></div></li>
+            <li><div>中途转向的几个节点<span>——重点在观点变化而非事件罗列</span></div></li>
+            <li><div>当前阶段的关注重心<span>——与今日看点相互印证</span></div></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>讨论类合辑</h3>
+          <p class="sub">汇总社区里对同一主题的不同说法，便于横向比较。</p>
+          <ul class="list">
+            <li><div>支持方的核心论点<span>——多围绕主题本身展开</span></div></li>
+            <li><div>保留意见的常见理由<span>——集中在依据是否充分</span></div></li>
+            <li><div>双方都能接受的部分<span>——通常是对事实的基本确认</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 看点说明 -->
+  <section id="explain">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Read</span>
+          <h2>怎么看每日大赛主题大赛的内容</h2>
+        </div>
+      </div>
+      <div class="article">
+        <p><strong>先分清事实与判断。</strong>每日大赛主题大赛里出现的多数内容是围绕主题的讨论，其中既有可核实的事实信息，也有参与者的个人判断。阅读时把两者分开，能减少被单一说法带偏的可能。</p>
+        <p><strong>再看信息的来源与时间。</strong>同一主题在不同时间点的说法可能并不一致，较早的内容未必适用于当前阶段。看到与今日看点冲突的描述时，先确认它属于哪个时间段，再决定是否采信。</p>
+        <p><strong>最后对照多个合辑。</strong>单一合辑往往只呈现一个角度，把脉络类与讨论类合辑并排看，更容易发现哪些说法是共识、哪些只是个别观点。这也是每日大赛主题大赛把内容分成两类合辑的原因。</p>
+        <p class="note">说明：本页为内容聚合与阅读引导，不对具体主题下结论，也不代表任何一方立场。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 社区讨论 -->
+  <section id="discuss">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Community</span>
+          <h2>社区讨论</h2>
+        </div>
+        <p>以下为社区中对每日大赛主题大赛阅读方式的常见反馈，反映的是读者感受，不构成对内容的评价。</p>
+      </div>
+      <div class="discuss">
+        <div class="quote">
+          <p>“合辑把前后变化放在一起之后，很多之前没看懂的地方就串起来了。”</p>
+          <div class="who">— 长期关注主题内容的读者</div>
+        </div>
+        <div class="quote">
+          <p>“讨论类合辑里两种说法并列，看的时候会自己多想一想，不会只看一边。”</p>
+          <div class="who">— 社区参与者</div>
+        </div>
+        <div class="quote">
+          <p>“更新时段不固定，白天和晚上看到的内容差别挺大，得挑时间回来看。”</p>
+          <div class="who">— 日常浏览用户</div>
+        </div>
+        <div class="quote">
+          <p>“希望今日看点能标清楚哪些是新出现的，哪些只是旧主题又被提起。”</p>
+          <div class="who">— 社区反馈整理</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 内容入口 -->
+  <section id="entry">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">Entry</span>
+          <h2>内容入口</h2>
+        </div>
+        <p>从下面的入口进入对应板块，或先下载主题资料留存备查。</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#today">今日看点</a>
+        <a class="btn btn-ghost" href="#topics">主题合辑</a>
+        <a class="btn btn-ghost" href="#discuss">社区讨论</a>
+        <a class="btn btn-ghost" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载主题资料</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">每日大赛主题大赛</div>
+        <p class="foot-note">每日大赛主题大赛聚焦每日热点主题的聚合阅读，提供看点速览、主题合辑与社区反馈三类内容，帮助读者建立自己的判断顺序。</p>
+      </div>
+      <div class="foot-links">
+        <a href="#today">今日看点</a>
+        <a href="#topics">主题合辑</a>
+        <a href="#explain">看点说明</a>
+        <a href="#discuss">社区讨论</a>
+        <a href="#entry">内容入口</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>每日大赛主题大赛 · 内容聚合首页</span>
+      <span>页面内容随主题更新，具体以对应板块展示为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
